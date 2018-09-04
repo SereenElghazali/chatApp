@@ -1,0 +1,13 @@
+.login-form{
+    max-width: 600px;
+    margin: 100px auto;
+    border: 1px solid #00000038;
+    border-radius: 10px;
+    padding: 40px;
+    position: relative;
+}
+.user-image{
+    max-width: 128px;
+    max-height: 128px;
+    border-radius: 50%;
+}

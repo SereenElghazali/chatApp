@@ -1,0 +1,16 @@
+
+<div class="userName">
+<span class="status" [ngClass]=(user.status)>
+</span>
+
+  <a (click)="openChatRoom($event)">
+      <img src="{{user.url}}"/>
+      {{user.displayName}}<br>
+      <span class="unread" [ngClass]="{'displayUnread':(unread | async)?.length > 0}">{{(unread | async)?.length}}</span>
+     
+    </a>
+  </div>
+    <!--<p>"userid"{{user.uid}}</p> 
+     {{(msgList | async)?.length}} message
+     {{(unread | async)?.length}}unread message-->
+     

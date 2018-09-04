@@ -1,0 +1,14 @@
+.header{
+    padding: 40px 20px;
+    text-align: center;
+    
+}
+img{
+    max-width: 128px;
+    max-height: 128px;
+    border-radius: 50%;  
+}
+a{
+    color: #fff;
+    text-decoration: none
+}

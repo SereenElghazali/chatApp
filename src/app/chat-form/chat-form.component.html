@@ -1,0 +1,19 @@
+<div class="form">
+    <button (click)="sendMsg()" >Send</button>
+    <emoji-input [(model)]="text"
+    [popupAnchor]="'bottom'"
+           [inputClass]="'red'"
+           [searchClass]="'blue'"
+           [closeAfterSelection]="false"
+           style="display: inline-block;"
+           (click)="openPopup(true)"
+           (setPopupAction)="setPopupAction($event)">
+    </emoji-input>
+    <button type="button" name="button"  style="display: inline-block;" (click)="openPopup()">
+      :)
+    </button>
+    <input type="file" (change)="upload($event)">
+    
+    </div>
+
+    

@@ -1,0 +1,41 @@
+<div class="login-form">
+<div *ngIf="choosingImage">
+    <img-cropper [image]="data" [settings]="cropperSettings"></img-cropper><br>
+    <br>
+    <br>
+    
+    <button (click)="SaveImage()">Save</button>
+</div>
+
+
+<form #f="ngForm" (ngSubmit)="onSubmit()" *ngIf="!choosingImage">
+
+ 
+  
+      <div class="form-group">
+          <label>username</label>
+          <input type="text" name="username"  class="form-control"  [(ngModel)]="displayName" 
+          required >
+      </div>
+
+
+    
+        <div class="choose-image">
+            <img [src]="data.image? data.image : imageUrl" class="user-image"/>
+            <br>
+            <br>
+            <button (click)="chooseImage()">Choose Image</button>
+            <div class="progress-bar progress-bar-info progress-bar-striped"
+                role="progressbar" attr.aria-valuenow="{{progress.percentage}}"
+                aria-valuemin="0" aria-valuemax="100"
+                [ngStyle]="{width:progress.percentage+'%'}">
+                {{progress.percentage}}%
+              </div>
+        </div>
+    
+
+   
+        <button [disabled]="f.invalid" type="submit" class="btn btn-primary">Update</button>
+     
+</form>
+</div>

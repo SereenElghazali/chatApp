@@ -1,0 +1,50 @@
+
+
+.messageContainer{
+   
+    padding: 10px 10px;
+    margin-bottom: 10px;
+    height: auto;
+    width: 70%;
+    min-width: 400px;
+    border-radius: 5px;
+    align-items:stretch;
+    background-color: #eee;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.26), 0 3px 6px rgba(0,0,0,0.23);
+    position: relative;
+}
+
+.isOwnMessageContainer{
+    background-color: #817CCE;
+    text-align: right;
+}
+.sender{
+    display: block;
+    color: #222;
+    font-weight: bold;
+    
+}
+.isOwnSender{
+    color: #817CCE;
+}
+.timestamp {
+    color: #555;
+    font-style: italic;
+    position: absolute;
+    bottom: 0;
+    right: 10px;
+}
+
+.isOwnTimestamp{
+    color: #817CCE;
+}
+.messageContent{
+    height: auto;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.isOwnMessageContent{
+    
+    color: #fff;
+}

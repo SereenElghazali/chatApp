@@ -1,0 +1,33 @@
+.user-list{
+    width: 200px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    border-right: 1px solid rgba(170, 162, 162, 0.404);
+    overflow-y: auto;
+}
+.header{
+    width: 200px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: blueviolet;
+    
+}
+.chat-room{
+    max-width: 500px;
+    margin: auto;
+    overflow-y:auto;
+    margin-bottom: 66px
+   
+}
+.chat-form{
+   position: fixed;
+   bottom: 50px;
+   max-width: 700px;
+   margin: auto
+ 
+    
+}

@@ -1,0 +1,7 @@
+<div class="search">
+  <app-user-search (search)="Search($event)"></app-user-search>
+</div>
+<div>
+    <app-user-item [authId]="authId" (openChat)="Openchat($event)" (openChatUser)="OpenchatUser($event)"
+    [user]=user *ngFor="let user of users"></app-user-item>
+</div>

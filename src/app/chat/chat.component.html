@@ -1,0 +1,19 @@
+
+  <div class="user-list">
+    <app-user-list (openChatUser)="Openchatuser($event)" (openChatUsers)="Openchatusers($event)"></app-user-list>
+  </div>
+  <div class="header">
+    <app-header></app-header>
+  </div>
+  <div class="chat-room">
+      <p>{{roomName}}</p>
+      <app-chat-room [roomName]="roomName"></app-chat-room>
+      <div class="chat-form">
+          <app-chat-form [user]=user [roomName]="roomName"></app-chat-form>
+      </div>
+  </div>
+  
+
+
+
+

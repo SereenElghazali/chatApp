@@ -1,0 +1,7 @@
+<div class="msgList">
+    <div *ngFor="let message of msgList | async" class="message">
+      <app-message [chatMessage]=message></app-message>
+    </div>
+    {{(msgList | async)?.length}} message
+  </div>
+  
