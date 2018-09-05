@@ -11,6 +11,7 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./message.component.css']
 })
 export class MessageComponent implements OnInit {
+  msgId: string;
   urlE: boolean=false;
   url: string;
   
@@ -38,6 +39,7 @@ export class MessageComponent implements OnInit {
      }
 
      ngOnInit(chatMessage = this.chatMessage) {
+      
       this.messageContent = chatMessage.message;
       this.timeStamp = chatMessage.timeSent;
       this.userName = chatMessage.userName;

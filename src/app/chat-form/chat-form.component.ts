@@ -3,6 +3,10 @@ import { Input } from '@angular/core';
 import { ChatService } from 'src/app/services/chat.service';
 import { UploadService } from 'src/app/services/upload.service';
 import { FileUpload } from 'src/app/models/file-upload';
+import { UserService } from 'src/app/services/user.service';
+import { AuthService } from 'src/app/services/auth.service';
+import { AngularFireDatabase } from 'angularfire2/database';
+import { AngularFireAuth } from 'angularfire2/auth';
 
 @Component({
   selector: 'app-chat-form',
@@ -10,6 +14,10 @@ import { FileUpload } from 'src/app/models/file-upload';
   styleUrls: ['./chat-form.component.css']
 })
 export class ChatFormComponent implements OnInit {
+  sender: any;
+  userName: any;
+  unread: string;
+  authEmail: any;
   file(arg0: any, arg1: any, arg2: any, arg3: any): any {
     throw new Error("Method not implemented.");
   }
@@ -20,7 +28,20 @@ export class ChatFormComponent implements OnInit {
   @Input() user: any;
   text: string = '';
   openPopup: Function;
-  constructor(private chat:ChatService,private uploadService:UploadService) { }
+  constructor(private chat:ChatService,private uploadService:UploadService,private firebaseAuth: AngularFireAuth,
+    private afDatabase:AngularFireDatabase) {
+    this.firebaseAuth.authState.subscribe(auth => {
+      if (auth ) {
+        this.user = auth;
+        console.log("new ",this.user.uid)
+      }
+      this.chat.getUser().subscribe(a => {
+        this.sender = a.displayName;
+        
+     
+      });
+    });
+  }
   selectedFiles: FileList;
   currentFileUpload: FileUpload;
   progress: { percentage: number } = { percentage: 0 };
@@ -36,12 +57,12 @@ export class ChatFormComponent implements OnInit {
     }else{
     this.userStatus=this.user.status;
     if(this.userStatus=="offline"){
-      this.read="false";
-      this.chat.sendMessage(this.text,this.roomName,this.read);
+      this.unread=this.sender;
+      this.chat.sendMessage(this.text,this.roomName,this.unread);
   }
  else if(this.userStatus=="online"){
-  this.read="true";
-  this.chat.sendMessage(this.text,this.roomName,this.read);
+  this.unread="";
+  this.chat.sendMessage(this.text,this.roomName,this.unread);
  }
     //this.chat.sendMessage(this.text,this.roomName,this.unread);
     this.text="";

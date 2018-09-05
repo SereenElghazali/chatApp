@@ -64,9 +64,10 @@ export class ChatService {
      getUserMessages(chatRoom:string):any{
       return this.afDatabase.list('messages/'+chatRoom, ref =>ref.orderByChild('read').equalTo("false")).valueChanges();;
      }
-     getUnreadMsg(x){
+     getUnreadMsg(x,y){
+       console.log("y"+y);
       return this.afDatabase.list('messages/'+x,  ref =>
-      ref.orderByChild('read').equalTo("false")).valueChanges();
+      ref.orderByChild('read').equalTo(y)).valueChanges();
     
     
   }

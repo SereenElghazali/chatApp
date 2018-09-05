@@ -9,6 +9,7 @@ import { FileUpload } from 'src/app/models/file-upload';
   providedIn: 'root'
 })
 export class UploadService {
+  userId: string;
   email: any;
   userName: any;
   imagrurl: any;
@@ -19,6 +20,7 @@ export class UploadService {
     this.firebaseAuth.authState.subscribe(auth => {
       if (auth ) {
         this.user = auth;
+        this.userId=this.user.uid
         console.log("new ",this.user.uid)
       }
       this.getUser().subscribe(a => {
@@ -29,7 +31,7 @@ export class UploadService {
     });
   }
   getUser():Observable<any> {
-    return this.afDatabase.object('users/'+ this.user.uid).valueChanges();
+    return this.afDatabase.object('users/'+ this.userId).valueChanges();
   }
   
 

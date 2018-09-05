@@ -1,5 +1,5 @@
 export class ChatMsg {
-    $key?: string;
+   id?: string;
     email?: string;
     userName?: string;
     message?: string;

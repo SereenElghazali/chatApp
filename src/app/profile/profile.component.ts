@@ -98,16 +98,14 @@ export class ProfileComponent implements OnInit {
     
   }
   onSubmit() {
-    if(this.form.valid) {
+    
     
    
    this.authService.updateUserData(this.userId,this.displayName,this.imagrurl);
     
      this.router.navigate(['home']);
        
-       } else {
-      console.log('Invalid Form ');
-     }
+       
 
     
    }

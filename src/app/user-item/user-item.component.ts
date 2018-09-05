@@ -13,6 +13,7 @@ import { AngularFireDatabase } from 'angularfire2/database';
   styleUrls: ['./user-item.component.css']
 })
 export class UserItemComponent implements OnInit {
+  userName: (arg0: any, arg1: any) => any;
   unread: Observable<{}[]>;
   
   
@@ -31,9 +32,10 @@ export class UserItemComponent implements OnInit {
    }
 
   ngOnInit() {
+    this.userName=this.user.displayName;
     this.chatRoom=this.getChatRoom();
     this.msgList = this.chat.getUserMessages(this.chatRoom);
-    this.unread = this.chat.getUnreadMsg(this.chatRoom)
+    this.unread = this.chat.getUnreadMsg(this.chatRoom,this.userName)
     
   }
   openChatRoom($event){
